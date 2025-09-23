@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>instagram</title>
+</head>
+<body>
+  <h1>This Page belong to @<%= username %> </h1>  
+  <button>Follow</button>
+  <button>Massege</button>
+
+
+
+    <h3>Accounts that following you...</h3>
+  <% for(name of followers) {  %>
+  <li> <%= name %> </li>
+<% } %>
+</body>
+</html>

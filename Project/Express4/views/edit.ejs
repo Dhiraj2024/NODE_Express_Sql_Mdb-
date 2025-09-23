@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Task</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h1>Edit Task</h1>
+    <form method="post" action="/tasks/<%= task.id %>?_method=PATCH">
+      <textarea name="content" rows="5" required><%= task.content %></textarea>
+      <button class="btn edit-btn">Update Task</button>
+    </form>
+    <a class="btn back-btn" href="/tasks">⬅ Back</a>
+  </div>
+</body>
+</html>

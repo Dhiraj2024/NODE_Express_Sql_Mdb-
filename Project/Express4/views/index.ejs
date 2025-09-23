@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="app-title">My Todo List</h1>
+    <a class="btn add-btn" href="/tasks/new">+ Add Task</a>
+
+    <div class="task-list">
+      <% for(task of tasks){ %>
+        <div class="task-card">
+          <h3 class="task-title">@<%= task.username %></h3>
+          <p class="task-content"><%= task.content %></p>
+
+          <div class="task-actions">
+            <a class="btn view-btn" href="/tasks/<%= task.id %>">👁 View</a>
+            <a class="btn edit-btn" href="/tasks/<%= task.id %>/edit">✏ Edit</a>
+            <form method="post" action="/tasks/<%= task.id %>?_method=DELETE" style="display:inline;">
+              <button class="btn delete-btn">🗑 Delete</button>
+            </form>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>

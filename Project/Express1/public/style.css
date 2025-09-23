@@ -1,0 +1,84 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f0f2f5;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.app-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.task-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.task-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+}
+
+.task-title {
+  font-size: 18px;
+  margin: 0 0 10px 0;
+  color: #2980b9;
+}
+
+.task-content {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.task-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-btn {
+  display: inline-block;
+  margin-bottom: 20px;
+  background: #27ae60;
+  color: white;
+}
+
+.edit-btn {
+  background: #f39c12;
+  color: white;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  color: white;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}

@@ -1,0 +1,32 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+h1{
+    color: blue;
+     margin: 40px;
+}
+
+.chat , .massage ,.to{
+    font-size: large;
+    margin: 20px;
+}
+.container{
+    background-color: rgba(127, 255, 212, 0.155);
+}
+.chat{
+    margin-top: 10px;
+}
+.chat p{
+    color: rgba(28, 94, 225, 0.922);
+}
+ .massage p{
+    margin-left: 20px;
+    padding: 30px;
+    background-color: rgba(137, 43, 226, 0.548);
+    width: 450px;
+}
+ .to p{
+    padding: 5px;
+    color: brown;
+ }
