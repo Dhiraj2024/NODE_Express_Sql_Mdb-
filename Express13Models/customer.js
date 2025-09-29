@@ -64,4 +64,6 @@ const Customer = mongoose.model("Customer", customerSchema);
 };
 
 addCustomer();
-//   addOrders();
+  // addOrders();
+
+  

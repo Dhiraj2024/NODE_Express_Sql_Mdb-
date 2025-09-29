@@ -140,7 +140,7 @@
         const User = mongoose.model("User",userSchema);
         const Post = mongoose.model("Post",postSchema);
 
-
+//functions
     const getData = async () => {
         let result = await Post.findOne({}).populate("user","username");
         console.log(result);
