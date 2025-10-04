@@ -57,6 +57,7 @@ app.post("/chats/ok", (req,res) =>{
     msg: msg,
     created_at:new Date(),
    });
+   
 newChat
 .save()
 .then((res) => {

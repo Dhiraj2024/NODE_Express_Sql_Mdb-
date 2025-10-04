@@ -33,9 +33,6 @@ app.get("/listings", async(req, res) => {
     const allListings = await Listing.find({});
      res.render("listings/index.ejs",{allListings});
 });
-
-
-
 // //route listing----
 // app.get("/testListing",  async(req, res) => {
 //     let sampleListing = new Listing({

@@ -10,7 +10,7 @@ const { asyncWrapProviders } = require("async_hooks");
 const ExpressError = require("./utils/ExpressEroor.js");
 const {listingSchema } = require("./schema.js");
 
- const MONGO_URL="mongodb://127.0.0.1:27017/wanderlust";   
+const MONGO_URL="mongodb://127.0.0.1:27017/wanderlust";   
 
 app.use(express.static(path.join(__dirname, "public")));//for css
 app.set("view engine", "ejs");  // ⚡ "view-engine" nahi, "view engine"
@@ -96,13 +96,13 @@ app.delete("/listings/:id",wrapAsync(  async (req, res) => {
   res.redirect("/listings");
 }));
 
-app.use((req, res, next) => {
+app.use((req, res, next) => {  //hum apna custom error de sake 
   next(new ExpressError(404, "Page not found"));
 });
 
 app.use((err, req, res, next) => {
   const { statusCode = 500, message = "Something went wrong" } = err;
-  if (res.headersSent) {   // prevent double response
+  if (res.headersSent) {   //isliye likja taki bahar se koi  operation perform kara de 
     return next(err);
   }
   res.status(statusCode).render("error.ejs", { err, message });

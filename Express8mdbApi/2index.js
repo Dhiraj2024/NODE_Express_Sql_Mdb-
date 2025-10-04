@@ -13,6 +13,7 @@ app.set("view engine", "ejs");  // ⚡ "view-engine" nahi, "view engine"
 app.set("views", path.join(__dirname, "views"));  // ✅ sahi function join()
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
+
 main()
 .then((res) => {
 console.log("connection successfull");
@@ -58,6 +59,8 @@ app.post("/chats", (req,res) =>{
     msg: msg,
     created_at:new Date(),
    });
+
+   //chat save hoti hi
 newChat
 .save()
 .then((res) => {
@@ -70,24 +73,26 @@ newChat
 });
 //-Edit ROUTE----
 app.get("/chats/:id/edit", async(req,res) =>{
-     let {id} = req.params;
+     let {id, } = req.params;
+
     let chat = await Chat.findById(id);
    res.render("edit.ejs", { chat });
 });
 //-Update ROUTE----
 app.put("/chats/:id", async(req,res) => {
      let { id } = req.params;
-   let {msg: newMsg } = req.body;
+   let {msg: newMsg ,from: newfrom} = req.body;
+
    let updatedChat =await Chat.findByIdAndUpdate(
     id,
     { msg: newMsg },
+    { from: newfrom },
     { runValidators: true, new: true }
 );
+
    console.log(updatedChat);
    res.redirect("/chats");
 });
-//-----DELETE ROUTE------
-
 
 
 //----route------
