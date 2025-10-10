@@ -124,7 +124,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req, res ,next ) =>{
   res.locals.successMsg  = req.flash("success");   // ✅ sahi key
     res.locals.errorMsg = req.flash("error");       // ✅ sahi key
-  res.locals.currUser = req.user;
+  res.locals.currUser = req.user;///yaha hi curruser ya username
     next();
 });
 

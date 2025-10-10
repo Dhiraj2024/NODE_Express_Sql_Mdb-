@@ -30,8 +30,12 @@ console.log("connection successfull");
 async function main() {
  await  mongoose.connect(MONGO_URL);   
 }
+//=dhiraj2062004p_db_user
+// -===========1dudEQlX1zjJF7oQ
 
+// mongodb+srv://dhiraj2062004p_db_user:<db_password>@cluster0.usgfc19.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 
+//mongodb+srv://dhiraj2062004p_db_user:1dudEQlX1zjJF7oQ@cluster0.usgfc19.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 //----route------
 app.get("/", (req, res) => {
      res.send("Bhoot is  working");
@@ -42,7 +46,7 @@ app.get("/", (req, res) => {
 app.get("/listings",wrapAsync( async(req, res) => {
     const allListings = await Listing.find({});
      res.render("listings/index.ejs",{allListings});
-}));
+}));  
 //new route---
 app.get("/listings/new", (req, res) => {
   res.render("listings/new.ejs");

@@ -17,10 +17,10 @@ async function main() {
 }
 
 const initDB = async () => {
-  await Listing.deleteMany({});
+  await Listing.deleteMany({});//yaha par baad me owner input define kiya to isi tarike se data me owner ko insert karana hoga...
    initData.data  = initData.data.map((obj) => ({
     ...obj,
-    owner: "68da180f8221d043d999b710",
+    owner: "68d8d3cacc1019c3e35ef1f8",
    }));
   await Listing.insertMany(initData.data);
   console.log("data was initialized");

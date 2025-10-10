@@ -9,7 +9,6 @@ router.get("/signup", ( req, res) => {
     res.render("users/signup.ejs");
 });
 
-
 router.post("/signup",wrapAsync(async( req, res) => {
     try{
     let {username , email ,password} = req.body;
@@ -24,12 +23,9 @@ router.post("/signup",wrapAsync(async( req, res) => {
         res.redirect("/signup");
     }
 }));
-
 router.get("/login", ( req, res) => {
     res.render("users/login.ejs");
 });
-
-
 router.post(
     "/login",
     passport.authenticate("local",{
@@ -40,8 +36,5 @@ router.post(
         req.flash("success" , "welcome back Sir,");
         res.redirect("/listings");
     }
-);
- 
-
-      
+);    
 module.exports = router;

@@ -4,7 +4,7 @@ const ExpressError = require("./utils/ExpressEroor.js");
 const { listingSchema ,reviewSchema} = require("./schema.js");
 const Review = require("./models/review.js");
 
-
+//its for redirect my operation
 module.exports.isLoggedIn = (req, res, next) => {
         if(!req.isAuthenticated()){
         req.session.redirectUrl = req.originalUrl;
@@ -13,7 +13,7 @@ module.exports.isLoggedIn = (req, res, next) => {
   }
   next();
 };
-
+//it saves the redirection
 module.exports.saveRedirectUrl = (req, res ,next) => {
     if(req.session.redirectUrl){
         res.locals.redirectUrl = req.session.redirectUrl;
@@ -21,7 +21,7 @@ module.exports.saveRedirectUrl = (req, res ,next) => {
     next();
 };
 
-
+//for owner middleware-----
 module.exports.isOwner = async (req, res, next) => {
   let { id } = req.params;
   let listing = await Listing.findById(id);

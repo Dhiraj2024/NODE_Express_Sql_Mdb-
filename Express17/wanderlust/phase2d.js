@@ -32,8 +32,6 @@ app.engine('ejs',ejsMate);
 //app.use(cookieParser());//cookies----------
 app.use(cookieParser("secretcode"));//signed cookie
 
-
-
 const sessionOptions = {
     secret: "MySupersecretcode" ,
     resave: false ,
@@ -125,7 +123,6 @@ app.use((req, res ,next ) =>{
   next();
 });
 
-
 // app.get("/demouser", async(req, res, next) => {
 //     let fakeUser = new User({
 //         email: "student@gmail.com",
@@ -134,8 +131,6 @@ app.use((req, res ,next ) =>{
 // let registeredUser =await User.register(fakeUser, "pass");
 // res.send(registeredUser);
 // });
-
-
 
 app.use("/listings",listingsRouter);
 app.use("/listings/:id/reviews",reviewsRouter);

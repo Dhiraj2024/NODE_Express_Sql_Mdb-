@@ -18,8 +18,6 @@ const validateReview = (req, res, next) => {
  }
 };
 
-
-
 //REVIEWS---post--route-------
 router.post("/",validateReview,wrapAsync( async (req, res) => {
  let listing = await Listing.findById(req.params.id);

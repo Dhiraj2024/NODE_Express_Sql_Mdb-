@@ -10,11 +10,10 @@
   <div class="card-body">
     <!-- <p class="card-text"><b>Title-</b><%= listing.title %></p> -->
     <p><b>Descript-</b> <%= listing.description %> </p>
-    <p><b>Owner-</b> <%= listing.owner.username %>  </p>
+    <p><b>Owner-</b> <%= listing.owner.username %></p>
     <p><b>Price-</b>&#8377; <%= listing.price.toLocaleString("en-IN") %></p>
     <p><b>Location- </b><%= listing.location %></p>
     <p><b>Country-</b> <%= listing.country %></p>
-   
    </p>
   </div>
 </div>
@@ -71,8 +70,6 @@
       <form method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
   <button class="btn btn-sm btn-dark">Delete</button>
 </form>
-
-
       </div>  </div>
   <% } %>
 </div>

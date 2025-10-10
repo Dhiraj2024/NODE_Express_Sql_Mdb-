@@ -1,20 +1,14 @@
 const User = require("../models/user");
 const Listing = require("../models/listing");
 
-
-
-
 module.exports.showListing = async (req, res) => {
     const { id } = req.params;
-
     // Populate owner username
     const listing = await Listing.findById(id).populate('owner', 'username');
-
     if (!listing) {
         req.flash("error", "Cannot find that listing!");
         return res.redirect("/listings");
     }
-
     res.render("listings/show.ejs", { listing });
 };
 
@@ -46,14 +40,11 @@ module.exports.renderLogin = ( req, res) => {
     res.render("users/login.ejs");
 };
 
-
-
 module.exports.Login =  async( req, res) => {
         req.flash("success" , "welcome back Sir,");
         let redirectUrl = res.locals.redirectUrl || "/listings";
         res.redirect(redirectUrl);
     };
-
 
    module.exports.Logout  = (req, res) => {
     req.logout((err) => {

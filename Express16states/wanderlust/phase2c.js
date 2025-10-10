@@ -11,18 +11,12 @@ const ExpressError = require("./utils/ExpressEroor.js");
 // const { listingSchema , reviewSchema } = require("./schema.js");
 // const Review = require("./models/review.js");
 const cookieParser = require("cookie-parser");
-
-
 const listings = require("./routes/listing.js");
 const reviews = require("./routes/review.js");
-
-
 const session = require("express-session");
-
 const flash = require("connect-flash");
 
 const MONGO_URL="mongodb://127.0.0.1:27017/wanderlust";   
-
 
 app.use(express.static(path.join(__dirname, "public")));//for css
 app.set("view engine", "ejs");  // ⚡ "view-engine" nahi, "view engine"
@@ -32,8 +26,6 @@ app.use(methodOverride("_method"));
 app.engine('ejs',ejsMate);
 //app.use(cookieParser());//cookies----------
 app.use(cookieParser("secretcode"));//signed cookie
-
-
 
 const sessionOptions = {
     secret: "MySupersecretcode" ,
@@ -56,11 +48,9 @@ console.log("connection successfull");
 .catch(err => {
     console.log(err);
 });
-
 async function main() {
  await  mongoose.connect(MONGO_URL);   
 }
-
 
 //----route------
 // app.get("/", (req, res) => {
@@ -124,7 +114,6 @@ app.use((req, res ,next ) =>{
 app.use("/listings",listings);
 app.use("/listings/:id/reviews",reviews);
 
-
 app.use((req, res, next) => {
   next(new ExpressError(404, "Page not found"));
 });
@@ -140,6 +129,3 @@ app.use((err, req, res, next) => {
 app.listen(8090, () => {
     console.log(`app is listening on port 8090`);
 });
-
-
- 

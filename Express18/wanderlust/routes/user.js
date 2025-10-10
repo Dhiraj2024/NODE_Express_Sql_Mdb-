@@ -8,8 +8,6 @@ const { saveRedirectUrl } = require("../middleware.js");
 router.get("/signup", ( req, res) => {
     res.render("users/signup.ejs");
 });
-
-
 router.post("/signup",wrapAsync(async( req, res) => {
     try{
     let {username , email ,password} = req.body;
@@ -28,12 +26,9 @@ router.post("/signup",wrapAsync(async( req, res) => {
         res.redirect("/signup");
     }
 }));
-
 router.get("/login", ( req, res) => {
     res.render("users/login.ejs");
 });
-
-
 router.post(
     "/login",
     saveRedirectUrl,
@@ -48,7 +43,6 @@ router.post(
     }
 );  
 //logout------
-
 router.get("/logout",(req, res) => {
     req.logout((err) => {
         if(err){
@@ -59,9 +53,5 @@ router.get("/logout",(req, res) => {
     })
 });
 
-
-
-
-      
 module.exports = router;
 
